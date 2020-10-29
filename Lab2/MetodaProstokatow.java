@@ -1,6 +1,6 @@
 import java.util.function.Function;
 
-public class MetodaProstokatow implements metody
+public class MetodaProstokatow
 {
     public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {

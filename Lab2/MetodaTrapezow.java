@@ -1,6 +1,6 @@
 import java.util.function.Function;
 
-public class MetodaTrapezow implements metody
+public class MetodaTrapezow
 {
     public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {

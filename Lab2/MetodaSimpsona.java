@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.function.Function;
 
-public class MetodaSimpsona implements metody
+public class MetodaSimpsona
 {
     public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {

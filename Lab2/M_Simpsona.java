@@ -1,7 +1,5 @@
 import java.util.function.Function;
 
-import javax.lang.model.util.ElementScanner6;
-
 public class M_Simpsona extends Thread
 {
     private double wynik;

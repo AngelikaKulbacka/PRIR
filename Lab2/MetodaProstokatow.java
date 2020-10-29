@@ -1,20 +1,18 @@
-package Lab2;
+import java.util.function.Function;
 
 public class MetodaProstokatow implements metody
 {
-    public static double oblicz(double poczatek, double koniec, int n)
+    public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {
-        double dx = (koniec - poczatek) / n;
-
-        Funkcja[] tab = new Funkcja[n];
-        for (int i=0; i<n; i++)
+        M_Prostokatow[] tab = new M_Prostokatow[iloscPodzialow];
+        for (int i=0; i<iloscPodzialow; i++)
         {
-            tab[i] = new Funkcja(dx*(i+1));
+            tab[i] = new M_Prostokatow(poczatek, koniec, iloscPodzialow, i, funkcja);
             tab[i].start();
         }
 
         double wynik = 0;
-        for (int i=0; i<n; i++)
+        for (int i=0; i<iloscPodzialow; i++)
         {
             try
             {
@@ -26,9 +24,6 @@ public class MetodaProstokatow implements metody
             }
             wynik = wynik + tab[i].getWynik();
         }
-
-        wynik = wynik * dx;
-
         return wynik;
     }
 }

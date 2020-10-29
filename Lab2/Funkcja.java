@@ -1,5 +1,3 @@
-package Lab2;
-
 public class Funkcja extends Thread
 {
     private double wynik;

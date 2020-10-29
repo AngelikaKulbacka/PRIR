@@ -1,60 +1,47 @@
-package Lab2;
+import java.util.ArrayList;
+import java.util.function.Function;
 
 public class MetodaSimpsona implements metody
 {
-    public static double oblicz(double poczatek, double koniec, int n)
+    public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {
-        double dx = (koniec - poczatek) / n;
-        double wynik = 0;
-
-        Funkcja f0 = new Funkcja(poczatek);
-        Funkcja fn = new Funkcja(koniec);
+        ArrayList <M_Simpsona> tab = new ArrayList<M_Simpsona>();        
+        
+        M_Simpsona f0 = new M_Simpsona(poczatek, koniec, iloscPodzialow, 0, 1, funkcja);
+        M_Simpsona fn = new M_Simpsona(poczatek, koniec, iloscPodzialow, iloscPodzialow, 1, funkcja);
         f0.start();
         fn.start();
+        tab.add(f0);
+        tab.add(fn);
 
-        Funkcja [] fi = new Funkcja[n-1];
-
-        for (int i=1; i<=n-1; i++)
+        for (int i=1; i<=iloscPodzialow; i++)
         {
-            double x = poczatek + i * dx;
-            fi[i-1] = new Funkcja(x);
-            fi[i-1].start();
+            M_Simpsona f = new M_Simpsona(poczatek, koniec, iloscPodzialow, i, 2, funkcja);
+            f.start();
+            tab.add(f);
         }
-
-        Funkcja [] fti = new Funkcja[n];
-
-        for (int i=1; i<=n; i++)
+        
+        for (int i=1; i<=iloscPodzialow; i++)
         {
-            double a = poczatek + (i-1) * dx;
-            double b = poczatek + (i+1) * dx;
-            double x = (a + b) / 2;
-            fti[i-1] = new Funkcja(x);
-            fti[i-1].start();
+            M_Simpsona f = new M_Simpsona(poczatek, koniec, iloscPodzialow, i, 3, funkcja);
+            f.start();
+            tab.add(f);
         }
-
+        
+        double wynik = 0;
         try
         {
-            f0.join();
-            wynik = wynik + f0.getWynik();
-            fn.join();
-            wynik = wynik + fn.getWynik();
-
-            for (int i=0; i<fi.length; i++)
+            for (int i=0; i<tab.size(); i++)
             {
-                wynik = wynik + 2 * fi[i].getWynik();
-            }
-
-            for (int i=0; i<fti.length; i++)
-            {
-                wynik = wynik + 4 * fti[i].getWynik();
+                M_Simpsona f = tab.get(i);
+                f.join();
+                wynik = wynik + f.getWynik();
             }
         }
         catch(InterruptedException e)
         {
             e.printStackTrace();
         }
-
-        wynik = dx/6 * wynik;
 
         return wynik;
     }

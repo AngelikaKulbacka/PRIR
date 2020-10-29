@@ -1,34 +1,25 @@
-package Lab2;
+import java.util.function.Function;
 
 public class MetodaTrapezow implements metody
 {
-    public static double oblicz(double poczatek, double koniec, int n)
+    public static double oblicz(double poczatek, double koniec, int iloscPodzialow, Function<Double, Double> funkcja)
     {
-        double dx = (koniec - poczatek) / n;
-        Funkcja[] tab = new Funkcja[n+1];
+        M_Trapezow[] tab = new M_Trapezow[iloscPodzialow+1];
         double wynik = 0;
 
-        for (int i=0; i<n+1; i++)
+        for (int i=0; i<iloscPodzialow+1; i++)
         {
-            double x = poczatek + dx * i;
-            Funkcja f = new Funkcja(x);
+            M_Trapezow f = new M_Trapezow(poczatek, koniec, iloscPodzialow, i, funkcja);
             f.start();
             tab[i] = f;
         }
 
-        for (int i=0; i<n+1; i++)
+        for (int i=0; i<iloscPodzialow+1; i++)
         {
             try
             {
                 tab[i].join();
-                if (i==0 || i==n)
-                {
-                    wynik = wynik + tab[i].getWynik()/2;
-                }
-                else
-                {
-                    wynik = wynik + tab[i].getWynik();
-                }
+                wynik = wynik + tab[i].getWynik();
             }
             catch(InterruptedException e)
             {
@@ -36,6 +27,6 @@ public class MetodaTrapezow implements metody
             }
         }
         
-        return wynik * dx;
+        return wynik;
     }
 }

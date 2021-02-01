@@ -1,0 +1,9 @@
+Projekt w Pythonie - wykrywanie kolorów przy użyciu Pandas i OpenCV
+
+Wykrywanie koloru to proces wykrywania nazwy dowolnego koloru. Dla ludzi jest to niezwykle łatwe zadanie, ale dla komputerów nie jest proste. Ludzkie oczy i mózg współpracują ze sobą, aby przełożyć światło na kolor. Receptory światła obecne w naszych oczach przekazują sygnał do mózgu. Nasz mózg rozpoznaje wtedy kolor. Od dzieciństwa mapowaliśmy określone światła z ich nazwami kolorów. Będziemy używać tej samej strategii do wykrywania nazw kolorów.
+
+W tym projekcie Pythona do wykrywania kolorów jest zbudowana aplikacja, za pomocą której można automatycznie uzyskać nazwę koloru, klikając na nie. W tym celu będzie plik danych zawierający nazwę koloru i jego wartości. Następnie jest obliczana i szukana najkrótsza odległość od każdego koloru.
+
+Kolory składają się z 3 kolorów podstawowych; czerwony, zielony i niebieski. W komputerach definiujemy każdą wartość koloru w zakresie od 0 do 255. Istnieje około 16,5 miliona różnych sposobów przedstawiania koloru. W użytym zbiorze danych będzie trzeba zmapować wartości każdego koloru z odpowiadającymi im nazwami. Będziemy używać zbioru danych zawierającego wartości RGB z odpowiadającymi im nazwami. 
+
+źródło z kodem: https://data-flair.training/blogs/project-in-python-colour-detection/

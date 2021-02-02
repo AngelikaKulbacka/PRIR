@@ -7,3 +7,4 @@ W tym projekcie Pythona do wykrywania kolorów jest zbudowana aplikacja, za pomo
 Kolory składają się z 3 kolorów podstawowych; czerwony, zielony i niebieski. W komputerach definiujemy każdą wartość koloru w zakresie od 0 do 255. Istnieje około 16,5 miliona różnych sposobów przedstawiania koloru. W użytym zbiorze danych będzie trzeba zmapować wartości każdego koloru z odpowiadającymi im nazwami. Będziemy używać zbioru danych zawierającego wartości RGB z odpowiadającymi im nazwami. 
 
 źródło z kodem: https://data-flair.training/blogs/project-in-python-colour-detection/
+źródło do filmiku: https://drive.google.com/file/d/1cArPIT4ey2JNuCv9ssaPVjDW2ljJcHTJ/view?usp=sharing
